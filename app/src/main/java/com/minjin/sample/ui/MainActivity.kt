@@ -1,4 +1,4 @@
-package com.minjin.sample
+package com.minjin.sample.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

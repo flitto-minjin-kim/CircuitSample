@@ -1,4 +1,4 @@
-package com.minjin.sample.ui.presenter
+package com.minjin.sample.presenter
 
 import androidx.compose.runtime.Composable
 import com.minjin.sample.data.EmailRepository
