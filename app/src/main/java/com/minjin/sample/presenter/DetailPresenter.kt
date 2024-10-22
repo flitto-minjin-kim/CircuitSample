@@ -13,8 +13,8 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 
 
 class DetailPresenter @AssistedInject constructor(
-    @Assisted private val screen: DetailScreen,
     private val emailRepository: EmailRepository,
+    @Assisted private val screen: DetailScreen,
     @Assisted private val navigator: Navigator,
 ) : Presenter<DetailScreen.State> {
 
