@@ -1,14 +1,22 @@
 package com.minjin.sample.data
 
 import com.minjin.sample.model.Email
+import javax.inject.Inject
 
-class EmailRepository {
+interface EmailRepository {
 
-    fun getEmails(): List<Email> {
+    fun getEmails(): List<Email>
+
+    fun getEmail(id: String): Email
+}
+
+class EmailRepositoryImpl @Inject constructor() : EmailRepository {
+
+    override fun getEmails(): List<Email> {
         return mockEmails
     }
 
-    fun getEmail(id: String): Email {
+    override fun getEmail(id: String): Email {
         return mockEmails.find { it.id == id }!!
     }
 

@@ -14,17 +14,17 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
-import dagger.hilt.android.scopes.ActivityRetainedScoped
 
 class InboxPresenter @AssistedInject constructor(
-//    private val emailRepository: EmailRepository,
+    private val emailRepository: EmailRepository,
     @Assisted private val navigator: Navigator,
 ) : Presenter<InboxScreen.State> {
 
     @Composable
     override fun present(): InboxScreen.State {
-        val emailRepository = EmailRepository()
-        val emails by produceRetainedState<List<Email>>(initialValue = emptyList()) { value = emailRepository.getEmails() }
+        val emails by produceRetainedState<List<Email>>(initialValue = emptyList()) {
+            value = emailRepository.getEmails()
+        }
 
         return InboxScreen.State(emails) { event ->
             when (event) {

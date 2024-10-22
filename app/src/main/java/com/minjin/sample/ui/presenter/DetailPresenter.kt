@@ -14,13 +14,12 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 
 class DetailPresenter @AssistedInject constructor(
     @Assisted private val screen: DetailScreen,
-    // private val emailRepository: EmailRepository,
+    private val emailRepository: EmailRepository,
     @Assisted private val navigator: Navigator,
 ) : Presenter<DetailScreen.State> {
 
     @Composable
     override fun present(): DetailScreen.State {
-        val emailRepository = EmailRepository()
         val email = emailRepository.getEmail(screen.emailId)
 
         return DetailScreen.State(email) { event ->

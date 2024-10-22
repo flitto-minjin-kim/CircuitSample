@@ -39,21 +39,27 @@ android {
     }
 }
 
+ksp {
+    arg("circuit.codegen.mode", "hilt")
+}
+
 dependencies {
-
+    // compose
     implementation(libs.androidx.core)
-    implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.compose.activity)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material3.core)
     implementation(libs.androidx.compose.material3)
-
+    // hilt
     implementation(libs.androidx.hilt.common)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
+    // kotlin
     implementation(libs.kotlinx.collections.immutable)
+
+    // circuit
     implementation(libs.bundles.circuit)
+    api(libs.circuit.codegen.annotation)
+    ksp(libs.circuit.codegen.ksp)
 }
