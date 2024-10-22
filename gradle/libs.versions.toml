@@ -1,0 +1,84 @@
+[versions]
+# Project
+androidGradlePlugin = "8.7.1"
+
+# AndroidX
+androidxCore = "1.13.1"
+androidxLifecycle = "2.8.6"
+androidxActivityCompose = "1.9.3"
+androidxComposeBom = "2024.10.00"
+
+# Kotlin
+kotlin = "2.0.21"
+kotlinxCollectionsImmutable = "0.3.8"
+ksp = "2.0.21-1.0.25"
+
+# Hilt
+androidxHilt = "1.2.0"
+hilt = "2.52"
+
+# MVI
+circuit = "0.24.0"
+
+[libraries]
+# AndroidX
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+
+# AndroidX Compose
+androidx-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# AndroidX Hilt
+androidx-hilt-common = { group = "androidx.hilt", name = "hilt-common", version.ref = "androidxHilt" }
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxHilt" }
+
+# Hilt
+hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+# Circuit
+circuit-codegen = { module = "com.slack.circuit:circuit-codegen", version.ref = "circuit" }
+circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
+circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
+circuit-overlay = { module = "com.slack.circuit:circuit-overlay", version.ref = "circuit" }
+circuit-retained = { module = "com.slack.circuit:circuit-retained", version.ref = "circuit" }
+circuit-runtime = { module = "com.slack.circuit:circuit-runtime", version.ref = "circuit" }
+circuit-runtime-presenter = { module = "com.slack.circuit:circuit-runtime-presenter", version.ref = "circuit" }
+circuit-runtime-screen = { module = "com.slack.circuit:circuit-runtime-screen", version.ref = "circuit" }
+circuit-runtime-ui = { module = "com.slack.circuit:circuit-runtime-ui", version.ref = "circuit" }
+circuitx-android = { module = "com.slack.circuit:circuitx-android", version.ref = "circuit" }
+circuitx-gesture-navigation = { module = "com.slack.circuit:circuitx-gesture-navigation", version.ref = "circuit" }
+circuitx-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
+
+# Kotlin
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutable" }
+
+[bundles]
+circuit = [
+    "circuit-codegen-annotations",
+    "circuit-foundation",
+    "circuit-overlay",
+    "circuit-retained",
+    "circuit-runtime",
+    "circuit-runtime-presenter",
+    "circuit-runtime-screen",
+    "circuit-runtime-ui",
+    "circuitx-android",
+    "circuitx-gesture-navigation",
+    "circuitx-overlays",
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
